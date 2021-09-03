@@ -1,0 +1,51 @@
+
+<div id="app-container">
+<dx-data-grid id="dataGrid" [dataSource]="dataSource"  
+keyExpr="Id"
+[allowColumnReordering]="true"
+(onEditingStart)="onEditingStart($event)"
+[columnAutoWidth]="true"
+[repaintChangesOnly]="true"
+>
+    <dxi-column dataField="FullName"
+    [fixed]="true">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="Position">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column
+    dataField="BirthDate"
+    dataType="date"
+    [width]="100">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column
+    dataField="HireDate"
+    dataType="date"
+    [width]="100">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="City"></dxi-column>
+    <dxi-column
+    dataField="Country">
+        <dxo-lookup [dataSource]="countryList" valueExpr="Name" displayExpr="Name"></dxo-lookup>
+    </dxi-column>
+    <dxi-column dataField="Address"></dxi-column>
+    <dxi-column dataField="HomePhone"></dxi-column>
+    <dxi-column dataField="PostalCode" [visible]="false"></dxi-column>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-editing
+        mode="popup"        
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+        [allowAdding]="true">
+    </dxo-editing>
+</dx-data-grid>
+</div>
+
+
